@@ -3,6 +3,7 @@ node_modules
 /dist
 /distAuthoring
 /__DO_NOT_COMMIT
+storybook-static
 
 # local env files
 .env.local

@@ -50,7 +50,11 @@
     "_internal-copy-index": "shx cp dist/index.html dist/simpleportal.html && shx cp dist/index.html dist/portal.html && shx cp dist/index.html dist/fullportal.html && shx cp dist/index.html dist/embedded.html",
     "_internal-install-sdk": "echo \"installing...\" && npm install --loglevel notice",
     "_internal-test-functional": "npm run test:functional:local:sdk-r --prefix node_modules/@pega/dx-component-builder-sdk",
-    "_internal-build-jest-assets": "dx-component-builder-sdk buildJestAssets"
+    "_internal-build-jest-assets": "dx-component-builder-sdk buildJestAssets",
+    "build-storybookSDK": "STORYBOOK_PUBLIC_PATH=/sdk/ storybook build -o storybook-static/sdk",
+    "build-storybookConstellation": "STORYBOOK_PUBLIC_PATH=/constellation/ STORYBOOK_CONSTELLATION=true storybook build -o storybook-static/constellation",
+    "build-storybooks": "npm run build-storybookSDK && npm run build-storybookConstellation",
+    "serve-storybooks": "node scripts/server-storybooks.js"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -141,6 +145,7 @@
     "prettier": "^3.1.1",
     "prop-types": "^15.8.1",
     "sass-loader": "^13.3.3",
+    "serve": "^14.2.4",
     "shx": "^0.3.4",
     "storybook": "^8.6.14",
     "style-loader": "^3.3.4",
