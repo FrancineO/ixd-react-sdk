@@ -117,6 +117,8 @@ module.exports = (env, argv) => {
     );
   }
 
+  console.log(process.env.ASSET_PATH);
+
   // need to set mode to 'development' to get LiveReload to work
   //  and for debugger statements to not be stripped out of the bundle
   initConfig = {
@@ -152,7 +154,7 @@ module.exports = (env, argv) => {
           exclude: /node_modules/
         },
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           include: [
             path.resolve(__dirname, 'src'),
             path.resolve(__dirname, 'node_modules/react-datepicker'),
