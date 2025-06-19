@@ -6,7 +6,6 @@ import './common.css';
 import './assets/img/favicon.ico';
 import './assets/css/sdkStyles.css';
 import './assets/css/variables.css';
-import
 
 const outletElement = document.getElementById('outlet');
 
