@@ -1,41 +1,35 @@
-# Workflow name
-name: Build and Publish Storybook to GitHub Pages
-run-name: ${{ github.actor }} is publishing Storybook
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - "main"
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches: [main]
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup node
-        uses: actions/setup-node@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://registry.npmjs.org/
-      - name: Install and Build 🔧
-        run: | # Install npm packages and build the Storybook files
-          npm install
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app and Storybook
+        run: |
           npm run build:dev:ci
           npm run build-storybooks
+
       - name: Prepare GitHub Pages content
         run: npm run prepare-gh-pages
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.UID_GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./gh-pages-dist
