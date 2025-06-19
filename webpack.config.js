@@ -135,7 +135,7 @@ module.exports = (env, argv) => {
     plugins: pluginsToAdd,
     output: {
       filename: '[name].bundle.js',
-      publicPath: '',
+      publicPath: process.env.ASSET_PATH || '/', // default to root
       path: path.resolve(__dirname, 'dist'),
       clean: true
     },
