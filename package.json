@@ -54,7 +54,9 @@
     "build-storybookSDK": "STORYBOOK_PUBLIC_PATH=/sdk/ storybook build -o storybook-static/sdk",
     "build-storybookConstellation": "STORYBOOK_PUBLIC_PATH=/constellation/ STORYBOOK_CONSTELLATION=true storybook build -o storybook-static/constellation",
     "build-storybooks": "npm run build-storybookSDK && npm run build-storybookConstellation",
-    "serve-storybooks": "node scripts/server-storybooks.js"
+    "serve-storybooks": "node scripts/server-storybooks.js",
+    "prepare-gh-pages": "rm -rf gh-pages-dist && mkdir gh-pages-dist && cp -r dist gh-pages-dist/app && mkdir gh-pages-dist/storybook && cp -r storybook-static/sdk gh-pages-dist/storybook/sdk && cp -r storybook-static/constellation gh-pages-dist/storybook/constellation",
+    "deploy": "npm run build:dev:ci && npm run build-storybooks && npm run prepare-gh-pages && gh-pages "
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
