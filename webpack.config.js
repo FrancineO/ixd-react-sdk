@@ -11,6 +11,7 @@ module.exports = (env, argv) => {
   pluginsToAdd.push(
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      baseHref: process.env.ASSET_PATH || '/',
       filename: 'index.html'
     })
   );
