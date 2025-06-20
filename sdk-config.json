@@ -24,7 +24,7 @@
     "appAlias": "",
 
     "sdkContentServerUrl_comment": "If specified, the given URL will be used. If left blank, window.location.origin will be used.",
-    "sdkContentServerUrl": "",
+    "sdkContentServerUrl": "/ixd-react-sdk/app",
 
     "appPortal_comment": "If specified, the given appPortal will be loaded. If left blank, the operator's default Portal is used. Ignored for Embedded use",
     "appPortal": "",
@@ -38,7 +38,7 @@
 
   "dxcbConfig": {
     "publishAccess": {
-      "rulesetName": "CustomDXComponents",
+      "rulesetName": "CustomSpotifyComponents",
       "rulesetVersion": "01-01-01",
       "sourceOfComponents": "Server",
       "devBuild": false,
@@ -58,8 +58,8 @@
     },
 
     "componentDefaults": {
-      "organization": "YourOrg",
-      "library": "YourComponentLib",
+      "organization": "Spotify",
+      "library": "Custom",
       "version": "0.0.1",
       "type": "",
       "subtype": "",
