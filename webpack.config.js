@@ -154,9 +154,10 @@ module.exports = (env, argv) => {
           exclude: /node_modules/
         },
         {
-          test: /\.css$/i,
+          test: /\.css$/,
           include: [
             path.resolve(__dirname, 'src'),
+            path.resolve(__dirname, 'assets/css'),
             path.resolve(__dirname, 'node_modules/react-datepicker'),
             path.resolve(__dirname, 'node_modules/@pega/react-sdk-components/lib') /* needed to resolve CSS files in new SDK packaging */
           ],
